@@ -43,8 +43,14 @@ mint:
 	@forge script script/Interactions.s.sol:MintBasicNft ${NETWORK_ARGS}
 
 deployMood:
-	@forge script script/DeployMoodNft.s.sol:DeployMoodNft $(NETWORK_ARGS)
+	@forge script script/DeployMoodNft.s.sol:DeployMoodNFT $(NETWORK_ARGS)
 
+mintMood: 
+	cast send 0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496 "mintNft()"
+
+flipMood:
+	cast call 0x7FA9385bE102ac3EAc297483Dd6233D62b3e1496 "flipMood()"
+	
 mintMoodNft:
 	@forge script script/Interactions.s.sol:MintMoodNft $(NETWORK_ARGS)
 
